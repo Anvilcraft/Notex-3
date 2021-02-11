@@ -9,6 +9,7 @@ console.info('Hello, World! (You will see this line every time server resources 
 
 events.listen('recipes', event => {
   event.remove({output: "angelring:itemring"})
+  event.remove({output: "angelring:itemdiamondring"})
   event.remove({output: "alchemistry:chemical_combiner"})
   event.remove({output: "alchemistry:chemical_dissolver"})
   event.remove({output: "compactmachines:wall"})
@@ -18,6 +19,7 @@ events.listen('recipes', event => {
   event.remove({output: "compactmachines:machine_large"})
   event.remove({output: "compactmachines:machine_giant"})
   event.remove({output: "compactmachines:machine_large"})
+  event.remove({output: "compactmachines:machine_maximum"})
   event.remove({output: "compactmachines:personal_shrinking_device"})
   event.remove({output: 'ring_of_teleport:ring_of_teleport'})
   event.remove({output: 'ring_of_enderchest:ring_of_enderchest'})
@@ -133,54 +135,35 @@ events.listen('recipes', event => {
   })
   event.shapeless('ring_of_blink:ring_of_blink', ['ring_of_teleport:ring_of_teleport', 'botania:terrasteel_ingot'])
 
-  event.custom({
-    "type": "astralsorcery:altar",
-    "altar_type": 2,
-    "duration": 400,
-    "starlight": 2600,
-    "pattern": [
-      "WT_TW",
-      "TGEGT",
-      "_EDE_",
-      "_GEG_",
-      "RN_NA"
-    ],
-    "key": {
-      "A": {
-        "item": "cyclic:antigravity"
-      },
-      "N": {
-        "item": "minecraft:nether_star"
-      },
-      "E": {
-        "item": "botania:elementium_ingot"
-      },
-      "G": {
-        "item": "minecraft:gold_ingot"
-      },
-      "W": {
-        "item": "forbidden_arcanus:bat_wing"
-      },
-      "T": {
-        "item": "minecraft:ghast_tear"
-      },
-      "R": {
-        "item": "botania:rune_air"
-      },
-      "D": {
-        "item": "angelring:itemdiamondring"
-      }
-    },
-    "output": [
-      {
-        "item": "angelring:itemring",
-        "count": 1
-      }
-    ],
-    "effects": [
-      "astralsorcery:built_in_effect_discovery_central_beam",
-      "astralsorcery:altar_default_sparkle"
-    ]
-  }
-)
+  event.shaped('angelring:itemring', [
+    'WGW',
+    'GRG',
+    'TGT'
+    ], {
+      G: 'minecraft:gold_ingot',
+      R: 'angelring:itemdiamondring',
+      W: 'forbidden_arcanus:bat_wing',
+      T: 'minecraft:ghast_tear'
+  })
+
+  event.shaped('angelring:itemdiamondring', [
+    'DED',
+    'ECE',
+    'DED'
+    ], {
+      C: 'minecraft:nether_star',
+      E: 'botania:manasteel_ingot',
+      D: 'minecraft:diamond_block'
+  })
+
+  event.shaped('angelring:itemdiamondring', [
+    'DED',
+    'ECE',
+    'DED'
+    ], {
+      C: 'minecraft:elytra',
+      E: 'botania:manasteel_ingot',
+      D: 'minecraft:diamond_block'
+  })
+
 })
