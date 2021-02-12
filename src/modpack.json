@@ -13,6 +13,11 @@
           "id": "overrides",
           "installer": "internal.override",
           "link": "file://overrides"
+        },
+        {
+          "id": "kubejs_scripts",
+          "installer": "internal.override",
+          "link": "file://../haxeout"
         }
       ],
       "relations": [
