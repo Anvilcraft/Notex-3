@@ -1,5 +1,4 @@
 # Notex-3
-MZTE fork of the notex3 modpack
 
 ## building
 Compiling requires [the haxe toolkit](https://haxe.org) to be installed, in order to compile KubeJS scripts and [modpacktools](https://github.com/Anvilcraft/modpacktools) to build the modpack.
