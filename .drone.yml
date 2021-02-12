@@ -11,6 +11,7 @@ steps:
 
           - ./buildhaxe.sh
           - java -jar mpt.jar buildtwitch
+          - java -jar mpt.jar createmodlist --all HTML build/modlist.html
 
           - mv build/notex-*-twitch.zip build/notex-twitch.zip
 
@@ -24,6 +25,7 @@ steps:
           title: tag-${DRONE_TAG}
           files:
               - build/notex-twitch.zip
+              - build/modlist.html
       when:
           event: tag
       depends_on:
