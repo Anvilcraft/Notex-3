@@ -1,3 +1,3 @@
-# v0.1.0
-initial release
+# v3.1.1
+remove structurize
 
