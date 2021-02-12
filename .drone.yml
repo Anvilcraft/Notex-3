@@ -27,5 +27,5 @@ steps:
       when:
           event: tag
       depends_on:
-          - release
+          - build
 
