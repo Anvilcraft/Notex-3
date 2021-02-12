@@ -1921,6 +1921,19 @@
             "server",
             "included"
           ]
+        },
+        {
+          "id": "forgehax",
+          "file": {
+              "installer": "internal.dir:mods",
+              "link": "https://jenkins.nhackindustries.com/job/ForgeHax/job/1.16/57/artifact/build/libs/ForgeHax-1.16.4-3.2.0-cc283818.jar"
+          },
+          "type": "mod",
+          "options": [
+              "required",
+              "client",
+              "included"
+          ]
         }
       ]
     }
