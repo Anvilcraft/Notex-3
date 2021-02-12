@@ -7,16 +7,16 @@ import kubejs.Events.EventType;
 import kubejs.Item;
 
 class Main {
-	static function main() {
-		Settings.logAddedRecipes = true;
-		Settings.logRemovedRecipes = true;
-		Settings.logSkippedRecipes = false;
-		Settings.logErroringRecipes = true;
+    static function main() {
+        Settings.logAddedRecipes = true;
+        Settings.logRemovedRecipes = true;
+        Settings.logSkippedRecipes = false;
+        Settings.logErroringRecipes = true;
 
-		Events.onEvent(EventType.RecipesEventType, onRecipesEvent);
-	}
+        Events.onEvent(EventType.RecipesEventType, onRecipesEvent);
+    }
 
-	static function onRecipesEvent(event:RecipesEvent) {
+    static function onRecipesEvent(event:RecipesEvent) {
         // @formatter:off
         var removeByOutput = [
             "angelring:itemring",
@@ -38,99 +38,99 @@ class Main {
             "ring_of_blink:ring_of_blink"
         ];
         // @formatter:on
-		for (i in removeByOutput) {
-			event.remove({output: i});
-		}
+        for (i in removeByOutput) {
+            event.remove({output: i});
+        }
 
-		// SHAPED RECIPES
-		event.shaped("alchemistry:chemical_combiner", ["SSS", "ACA", "SSS"], {
-			S: "#forge:ingots/steel",
-			C: "mekanism:chemical_crystallizer",
-			A: "mekanism:alloy_atomic"
-		});
+        // SHAPED RECIPES
+        event.shaped("alchemistry:chemical_combiner", ["SSS", "ACA", "SSS"], {
+            S: "#forge:ingots/steel",
+            C: "mekanism:chemical_crystallizer",
+            A: "mekanism:alloy_atomic"
+        });
 
-		event.shaped("alchemistry:chemical_dissolver", ["SSS", "ACA", "SSS"], {
-			S: "#forge:ingots/steel",
-			C: "mekanism:chemical_dissolution_chamber",
-			A: "mekanism:alloy_atomic"
-		});
+        event.shaped("alchemistry:chemical_dissolver", ["SSS", "ACA", "SSS"], {
+            S: "#forge:ingots/steel",
+            C: "mekanism:chemical_dissolution_chamber",
+            A: "mekanism:alloy_atomic"
+        });
 
-		event.shaped("compactmachines:wall", ["TTT", "TCT", "TTT"], {
-			T: "chemlib:ingot_thorium",
-			C: "#forge:ingots/chromium"
-		});
+        event.shaped("compactmachines:wall", ["TTT", "TCT", "TTT"], {
+            T: "chemlib:ingot_thorium",
+            C: "#forge:ingots/chromium"
+        });
 
-		event.shaped("compactmachines:machine_tiny", ["CCC", "CTC", "CCC"], {
-			T: "mekanism:teleportation_core",
-			C: "compactmachines:wall"
-		});
+        event.shaped("compactmachines:machine_tiny", ["CCC", "CTC", "CCC"], {
+            T: "mekanism:teleportation_core",
+            C: "compactmachines:wall"
+        });
 
-		event.shaped("compactmachines:machine_small", ["CCC", "CMC", "CCC"], {
-			M: "compactmachines:machine_tiny",
-			C: "compactmachines:wall"
-		});
+        event.shaped("compactmachines:machine_small", ["CCC", "CMC", "CCC"], {
+            M: "compactmachines:machine_tiny",
+            C: "compactmachines:wall"
+        });
 
-		event.shaped("compactmachines:machine_normal", ["CCC", "CMC", "CCC"], {
-			M: "compactmachines:machine_small",
-			C: "compactmachines:wall"
-		});
+        event.shaped("compactmachines:machine_normal", ["CCC", "CMC", "CCC"], {
+            M: "compactmachines:machine_small",
+            C: "compactmachines:wall"
+        });
 
-		event.shaped("compactmachines:machine_large", ["CCC", "CMC", "CCC"], {
-			M: "compactmachines:machine_normal",
-			C: "compactmachines:wall"
-		});
+        event.shaped("compactmachines:machine_large", ["CCC", "CMC", "CCC"], {
+            M: "compactmachines:machine_normal",
+            C: "compactmachines:wall"
+        });
 
-		event.shaped("compactmachines:machine_giant", ["CCC", "CMC", "CCC"], {
-			M: "compactmachines:machine_large",
-			C: "compactmachines:wall"
-		});
+        event.shaped("compactmachines:machine_giant", ["CCC", "CMC", "CCC"], {
+            M: "compactmachines:machine_large",
+            C: "compactmachines:wall"
+        });
 
-		event.shaped("compactmachines:machine_maximum", ["CCC", "CMC", "CCC"], {
-			M: "compactmachines:machine_giant",
-			C: "compactmachines:wall"
-		});
+        event.shaped("compactmachines:machine_maximum", ["CCC", "CMC", "CCC"], {
+            M: "compactmachines:machine_giant",
+            C: "compactmachines:wall"
+        });
 
-		event.shaped("compactmachines:personal_shrinking_device", ["III", "ICI", "TTT"], {
-			T: "mekanism:teleportation_core",
-			C: "#forge:ingots/chromium",
-			I: "#forge:ingots"
-		});
+        event.shaped("compactmachines:personal_shrinking_device", ["III", "ICI", "TTT"], {
+            T: "mekanism:teleportation_core",
+            C: "#forge:ingots/chromium",
+            I: "#forge:ingots"
+        });
 
-		event.shaped("ring_of_teleport:ring_of_teleport", ["EM ", "M M", " M "], {
-			E: "#forge:ender_pearls",
-			M: "botania:manasteel_ingot"
-		});
+        event.shaped("ring_of_teleport:ring_of_teleport", ["EM ", "M M", " M "], {
+            E: "#forge:ender_pearls",
+            M: "botania:manasteel_ingot"
+        });
 
-		event.shaped("ring_of_enderchest:ring_of_enderchest", ["EM ", "M M", " M "], {
-			E: "#forge:chests/ender",
-			M: "botania:manasteel_ingot"
-		});
+        event.shaped("ring_of_enderchest:ring_of_enderchest", ["EM ", "M M", " M "], {
+            E: "#forge:chests/ender",
+            M: "botania:manasteel_ingot"
+        });
 
-		event.shaped("ring_of_repair:ring_of_repair", ["ME ", "E E", " E "], {
-			M: Item.of("minecraft:enchanted_book", 1, {StoredEnchantments: [{lvl: 1, id: "minecraft:mending"}]}),
-			E: "botania:elementium_ingot"
-		});
+        event.shaped("ring_of_repair:ring_of_repair", ["ME ", "E E", " E "], {
+            M: Item.of("minecraft:enchanted_book", 1, {StoredEnchantments: [{lvl: 1, id: "minecraft:mending"}]}),
+            E: "botania:elementium_ingot"
+        });
 
-		event.shaped("angelring:itemring", ["WGW", "GRG", "TGT"], {
-			G: "minecraft:gold_ingot",
-			R: "angelring:itemdiamondring",
-			W: "forbidden_arcanus:bat_wing",
-			T: "minecraft:ghast_tear"
-		});
+        event.shaped("angelring:itemring", ["WGW", "GRG", "TGT"], {
+            G: "minecraft:gold_ingot",
+            R: "angelring:itemdiamondring",
+            W: "forbidden_arcanus:bat_wing",
+            T: "minecraft:ghast_tear"
+        });
 
-		event.shaped("angelring:itemdiamondring", ["DED", "ECE", "DED"], {
-			C: "minecraft:nether_star",
-			E: "botania:manasteel_ingot",
-			D: "minecraft:diamond_block"
-		});
+        event.shaped("angelring:itemdiamondring", ["DED", "ECE", "DED"], {
+            C: "minecraft:nether_star",
+            E: "botania:manasteel_ingot",
+            D: "minecraft:diamond_block"
+        });
 
-		event.shaped("angelring:itemdiamondring", ["DED", "ECE", "DED"], {
-			C: "minecraft:elytra",
-			E: "botania:manasteel_ingot",
-			D: "minecraft:diamond_block"
-		});
+        event.shaped("angelring:itemdiamondring", ["DED", "ECE", "DED"], {
+            C: "minecraft:elytra",
+            E: "botania:manasteel_ingot",
+            D: "minecraft:diamond_block"
+        });
 
-		// SHAPELESS RECIPES
-		event.shapeless("ring_of_blink:ring_of_blink", ["ring_of_teleport:ring_of_teleport", "botania:terrasteel_ingot"]);
-	}
+        // SHAPELESS RECIPES
+        event.shapeless("ring_of_blink:ring_of_blink", ["ring_of_teleport:ring_of_teleport", "botania:terrasteel_ingot"]);
+    }
 }
