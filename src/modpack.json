@@ -1912,6 +1912,20 @@
           ]
         },
         {
+          "id": "225179",
+          "file": {
+            "installer": "internal.dir:mods",
+            "artifact": "curse.maven:225179:3124900",
+            "repository": "curse"
+          },
+          "type": "mod",
+          "options": [
+            "required",
+            "client",
+            "included"
+          ]
+        },
+        {
           "id": "forge",
           "versions": "[1.16.4-35.1.37]",
           "type": "modloader",
