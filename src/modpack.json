@@ -3,7 +3,7 @@
   "type": "modpack",
   "versions": [
     {
-      "version": "3.1.1",
+      "version": "3.1.2",
       "versionid": -1,
       "mcversion": [
         "1.16.4"
@@ -506,21 +506,6 @@
           "file": {
             "installer": "internal.dir:mods",
             "artifact": "curse.maven:307788:3099033",
-            "repository": "curse"
-          },
-          "type": "mod",
-          "options": [
-            "required",
-            "client",
-            "server",
-            "included"
-          ]
-        },
-        {
-          "id": "223099",
-          "file": {
-            "installer": "internal.dir:mods",
-            "artifact": "curse.maven:223099:3114256",
             "repository": "curse"
           },
           "type": "mod",
