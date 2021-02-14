@@ -1,0 +1,89 @@
+
+[General]
+	#Configure the time in seconds Jens needs to digest.
+	#Range: 1 ~ 1200
+	jens_digest_time = 120
+	#Configure the maximum distance in blocks Jens can search.
+	#Range: 1 ~ 64
+	jens_search_distance = 16
+
+["Spawn Chances"]
+	#Configure spawn weight & min/max group size. Set weight to 0 to disable.
+	#Range: 1 ~ 64
+	apored_min = 1
+	#Range: 1 ~ 64
+	apored_max = 1
+	#Range: 0 ~ 200
+	apored_weight = 15
+	#Range: 1 ~ 64
+	bakamitai_creeper_min = 1
+	#Range: 1 ~ 64
+	bakamitai_creeper_max = 1
+	#Range: 0 ~ 200
+	bakamitai_creeper_weight = 15
+	#Range: 1 ~ 64
+	drachenlord_min = 1
+	#Range: 1 ~ 64
+	drachenlord_max = 1
+	#Range: 0 ~ 200
+	drachenlord_weight = 15
+	#Range: 1 ~ 64
+	friedrich_min = 1
+	#Range: 1 ~ 64
+	friedrich_max = 1
+	#Range: 0 ~ 200
+	friedrich_weight = 2
+	#Range: 1 ~ 64
+	gisela_min = 1
+	#Range: 1 ~ 64
+	gisela_max = 1
+	#Range: 0 ~ 200
+	gisela_weight = 2
+	#Range: 1 ~ 64
+	holzstammhuhn_min = 1
+	#Range: 1 ~ 64
+	holzstammhuhn_max = 1
+	#Range: 0 ~ 200
+	holzstammhuhn_weight = 2
+	#Range: 1 ~ 64
+	islamist_min = 1
+	#Range: 1 ~ 64
+	islamist_max = 1
+	#Range: 0 ~ 200
+	islamist_weight = 15
+	#Range: 1 ~ 64
+	jens_min = 1
+	#Range: 1 ~ 64
+	jens_max = 1
+	#Range: 0 ~ 200
+	jens_weight = 2
+	#Range: 1 ~ 64
+	marcell_davis_min = 1
+	#Range: 1 ~ 64
+	marcell_davis_max = 1
+	#Range: 0 ~ 200
+	marcell_davis_weight = 15
+	#Range: 1 ~ 64
+	mr_bean_min = 1
+	#Range: 1 ~ 64
+	mr_bean_max = 1
+	#Range: 0 ~ 200
+	mr_bean_weight = 15
+	#Range: 1 ~ 64
+	mztewolf_min = 1
+	#Range: 1 ~ 64
+	mztewolf_max = 1
+	#Range: 0 ~ 200
+	mztewolf_weight = 2
+	#Range: 1 ~ 64
+	schalker_min = 1
+	#Range: 1 ~ 64
+	schalker_max = 1
+	#Range: 0 ~ 200
+	schalker_weight = 15
+	#Range: 1 ~ 64
+	smava_creeper_min = 1
+	#Range: 1 ~ 64
+	smava_creeper_max = 1
+	#Range: 0 ~ 200
+	smava_creeper_weight = 15
