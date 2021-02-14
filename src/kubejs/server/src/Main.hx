@@ -130,6 +130,14 @@ class Main {
             D: "minecraft:diamond_block"
         });
 
+        event.shaped(Item.of('minecraft:chest', 4), ["WWW", "W W", "WWW"], {
+            W: '#minecraft:logs'
+        });
+
+        event.shaped(Item.of("minecraft:stick", 16), ["W", "W"], {
+            W: "#minecraft:logs"
+        });
+
         // SHAPELESS RECIPES
         event.shapeless("ring_of_blink:ring_of_blink", ["ring_of_teleport:ring_of_teleport", "botania:terrasteel_ingot"]);
     }
