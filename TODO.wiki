@@ -1,5 +1,6 @@
 = TODO =
 - [X] Create haxe bindings for kubejs
 - [X] Port kubejs scripts to haxe
-- [ ] Add some useful client-side mods
+
+=== Mods to Add ===
 
