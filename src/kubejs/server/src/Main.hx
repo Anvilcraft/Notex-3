@@ -2,7 +2,7 @@ package;
 
 import kubejs.Events;
 import kubejs.Settings;
-import kubejs.events.GeneralEvents.RecipesEvent;
+import kubejs.events.server.RecipesEvent;
 import kubejs.Events.EventType;
 import kubejs.Item;
 
