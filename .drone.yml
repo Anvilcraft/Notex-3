@@ -2,10 +2,12 @@ kind: pipeline
 name: release
 steps:
     - name: build
-      image: alpine
+      image: haxe:4.2.0-alpine
       commands:
-          - apk add openjdk8-jre haxe curl neko
+          - apk add openjdk8-jre curl
+          # Download MPT
           - curl 'https://data.tilera.xyz/file/mpt/mpt-1.2-SNAPSHOT.jar' -o mpt.jar
+
           - haxelib setup /usr/share/haxe/lib
           - haxelib install kubejs
 
