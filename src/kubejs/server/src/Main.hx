@@ -35,7 +35,13 @@ class Main {
             "ring_of_teleport:ring_of_teleport",
             "ring_of_enderchest:ring_of_enderchest",
             "ring_of_repair:ring_of_repair",
-            "ring_of_blink:ring_of_blink"
+            "ring_of_blink:ring_of_blink",
+            "crossroads:gear_facade_glass",
+            "assemblylinemachines:simple_grinder",
+            "assemblylinemachines:steel_blade_piece",
+            "assemblylinemachines:steel_fluid_tank",
+            "enderrift:rift",
+            "enderrift:rift_orb"
         ];
         // @formatter:on
         for (i in removeByOutput) {
@@ -137,6 +143,36 @@ class Main {
         event.shaped(Item.of("minecraft:stick", 16), ["W", "W"], {
             W: "#minecraft:logs"
         });
+
+        event.shaped("minecraft:hopper", ["IWI", "IWI", " I "], {I: "#forge:ingots/iron", W: "#minecraft:logs"});
+
+        event.shaped("minecraft:repeater", ["R R", "SRS", "sss"], {R: "#forge:dusts/redstone", S: "#forge:rods/wooden", s: "minecraft:stone"});
+
+        event.shaped("enderrift:rift", ["LEL", "ECE", "LEL"], {
+            L: "#forge:ingots/lawrencium",
+            E: "minecraft:ender_eye",
+            C: "mekanism:teleportation_core"
+        });
+
+        //Steel Fix
+        event.shaped("assemblylinemachines:simple_grinder", ["sss", "rdr","iii"],{
+      		"s": "#forge:ingots/steel",
+      		"i": "#forge:ingots/iron",
+      		"r": "#forge:dusts/redstone",
+      		"d": "assemblylinemachines:hand_grinder"
+      	});
+
+        event.shaped("assemblylinemachines:steel_blade_piece", [" y ", "yxy"], {
+      		"x": "#forge:ingots/steel",
+      		"y": "#forge:nuggets/steel"
+      	});
+
+        event.shaped("assemblylinemachines:steel_fluid_tank", ["rsr", "gwg", "rsr"], {
+      		"r": "assemblylinemachines:steel_rod",
+      		"g": "#forge:glass_panes",
+      		"s": "#forge:ingots/steel",
+      		"w": "assemblylinemachines:wooden_fluid_tank"
+      	});
 
         // SHAPELESS RECIPES
         event.shapeless("ring_of_blink:ring_of_blink", ["ring_of_teleport:ring_of_teleport", "botania:terrasteel_ingot"]);
