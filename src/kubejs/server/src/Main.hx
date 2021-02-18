@@ -13,5 +13,7 @@ class Main {
         Settings.logErroringRecipes = true;
 
         Events.onEvent(EventType.RecipesEventType, Recipes.onEvent);
+        Events.onEvent(EventType.ItemTagsEventType, Tags.onItemTagsEvent);
+        Events.onEvent(EventType.BlockTagsEventType, Tags.onBlockTagsEvent);
     }
 }
