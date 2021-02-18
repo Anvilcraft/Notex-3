@@ -39,6 +39,7 @@ class Recipes {
         shapedRecipes(event);
         shapelessRecipes(event);
         customRecipes(event);
+        replaceInputs(event);
     }
 
     static function shapedRecipes(event:RecipesEvent) {
@@ -146,26 +147,6 @@ class Recipes {
             E: "minecraft:ender_eye",
             C: "mekanism:teleportation_core"
         });
-
-        // Steel Fix
-        event.shaped("assemblylinemachines:simple_grinder", ["sss", "rdr", "iii"], {
-            s: "#forge:ingots/steel",
-            i: "#forge:ingots/iron",
-            r: "#forge:dusts/redstone",
-            d: "assemblylinemachines:hand_grinder"
-        });
-
-        event.shaped("assemblylinemachines:steel_blade_piece", [" y ", "yxy"], {
-            x: "#forge:ingots/steel",
-            y: "#forge:nuggets/steel"
-        });
-
-        event.shaped("assemblylinemachines:steel_fluid_tank", ["rsr", "gwg", "rsr"], {
-            r: "assemblylinemachines:steel_rod",
-            g: "#forge:glass_panes",
-            s: "#forge:ingots/steel",
-            w: "assemblylinemachines:wooden_fluid_tank"
-        });
     }
 
     static function shapelessRecipes(event:RecipesEvent) {
@@ -198,5 +179,74 @@ class Recipes {
                 }
             ]
         });
+
+        // Resourceful bees honey to honey block in blast chiller
+        event.custom({
+            type: "thermal:chiller",
+            ingredient: {
+                fluid: "resourcefulbees:honey",
+                amount: 1000
+            },
+            result: [
+                {
+                    item: "minecraft:honey_block"
+                }
+            ]
+        });
+
+        // Ore processing fixes
+        var enrichmentChamberOreRecipes = [
+            ["forge:ores/nickel", "thermal:nickel_dust"],
+            ["forge:ores/silver", "thermal:silver_dust"],
+            ["forge:ores/aluminum", "silents_mechanisms:aluminum_dust"],
+            ["forge:ores/yellorite", "bigreactors:yellorium_dust"]
+        ];
+
+        var bothOreRecipes = [
+            ["forge:ores/bismuth", "silents_mechanisms:bismuth_dust"]
+        ];
+
+        for (r in enrichmentChamberOreRecipes.concat(bothOreRecipes)) {
+            event.custom({
+                type: "mekanism:enriching",
+                input: {
+                    ingredient: {
+                        tag: r[0]
+                    }
+                },
+                output: {
+                    item: r[1],
+                    count: 2
+                }
+            });
+        }
+
+        for (r in bothOreRecipes) {
+            event.custom({
+                type: "thermal:pulverizer",
+                ingredient: {
+                    tag: r[0]
+                },
+                result: [
+                    {
+                        item: r[1],
+                        chance: 2.0
+                    },
+                    {
+                        item: "minecraft:gravel",
+                        chance: 0.2
+                    }
+                ]
+            });
+        }
+    }
+
+    static function replaceInputs(event:RecipesEvent) {
+        // ALM Fixes
+        var almFixesFilter = {mod: "assemblylinemachines"};
+        event.replaceInput(almFixesFilter, "assemblylinemachines:steel_ingot", "#forge:ingots/steel");
+        event.replaceInput(almFixesFilter, "assemblylinemachines:steel_plate", "#forge:plates/steel");
+        event.replaceInput(almFixesFilter, "assemblylinemachines:steel_rod", "#forge:rods/steel");
+        event.replaceInput(almFixesFilter, "assemblylinemachines:plastic_sheet", "#forge:plastic");
     }
 }
