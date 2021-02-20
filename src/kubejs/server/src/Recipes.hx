@@ -248,5 +248,6 @@ class Recipes {
         event.replaceInput(almFixesFilter, "assemblylinemachines:steel_plate", "#forge:plates/steel");
         event.replaceInput(almFixesFilter, "assemblylinemachines:steel_rod", "#forge:rods/steel");
         event.replaceInput(almFixesFilter, "assemblylinemachines:plastic_sheet", "#forge:plastic");
+        event.replaceInput(almFixesFilter, "assemblylinemachines:iron_plate", "#forge:plates/iron");
     }
 }
