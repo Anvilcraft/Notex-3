@@ -202,9 +202,7 @@ class Recipes {
             ["forge:ores/yellorite", "bigreactors:yellorium_dust"]
         ];
 
-        var bothOreRecipes = [
-            ["forge:ores/bismuth", "silents_mechanisms:bismuth_dust"]
-        ];
+        var bothOreRecipes = [["forge:ores/bismuth", "silents_mechanisms:bismuth_dust"]];
 
         for (r in enrichmentChamberOreRecipes.concat(bothOreRecipes)) {
             event.custom({
@@ -249,5 +247,9 @@ class Recipes {
         event.replaceInput(almFixesFilter, "assemblylinemachines:steel_rod", "#forge:rods/steel");
         event.replaceInput(almFixesFilter, "assemblylinemachines:plastic_sheet", "#forge:plastic");
         event.replaceInput(almFixesFilter, "assemblylinemachines:iron_plate", "#forge:plates/iron");
+
+        // Silicon Fixes
+        event.replaceInput({}, "refinedstorage:silicon", "#forge:silicon");
+        event.replaceInput({}, "appliedenergistics2:silicon", "#forge:silicon");
     }
 }

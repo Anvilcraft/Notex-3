@@ -32,5 +32,8 @@ class Tags {
         event.add("forge:plates/iron", ["assemblylinemachines:iron_plate"]);
         event.add("forge:plates/steel", ["assemblylinemachines:steel_plate"]);
         event.add("forge:plastic", ["assemblylinemachines:plastic_sheet"]);
+
+        // Silicon fix
+        event.add("appliedenergistics2:silicon", ["#forge:silicon"]);
     }
 }
