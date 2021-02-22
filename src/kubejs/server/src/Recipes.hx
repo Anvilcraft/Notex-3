@@ -4,42 +4,27 @@ import kubejs.events.server.RecipesEvent;
 import kubejs.Item;
 
 class Recipes {
+    static final removeByOutput = Util.getFile("remove_by_output.txt");
+
     // @formatter:off
-    static final removeByOutput = [
-        "angelring:itemring",
-        "angelring:itemdiamondring",
-        "alchemistry:chemical_combiner",
-        "alchemistry:chemical_dissolver",
-        "compactmachines:wall",
-        "compactmachines:machine_tiny",
-        "compactmachines:machine_small",
-        "compactmachines:machine_normal",
-        "compactmachines:machine_large",
-        "compactmachines:machine_giant",
-        "compactmachines:machine_large",
-        "compactmachines:machine_maximum",
-        "compactmachines:personal_shrinking_device",
-        "ring_of_teleport:ring_of_teleport",
-        "ring_of_enderchest:ring_of_enderchest",
-        "ring_of_repair:ring_of_repair",
-        "ring_of_blink:ring_of_blink",
-        "crossroads:gear_facade_glass",
-        "assemblylinemachines:simple_grinder",
-        "assemblylinemachines:steel_blade_piece",
-        "assemblylinemachines:steel_fluid_tank",
-        "enderrift:rift",
-        "enderrift:rift_orb"
+    static final honeyLiquids = [
+        "resourcefulbees:honey",
+        "productivebees:honey",
+        "create:honey"
     ];
     // @formatter:on
     public static function onEvent(event:RecipesEvent) {
-        for (i in removeByOutput) {
-            event.remove({output: i});
-        }
-
+        removeRecipes(event);
         shapedRecipes(event);
         shapelessRecipes(event);
         customRecipes(event);
         replaceInputs(event);
+    }
+
+    static function removeRecipes(event:RecipesEvent) {
+        for (i in removeByOutput) {
+            event.remove({output: i});
+        }
     }
 
     static function shapedRecipes(event:RecipesEvent) {
@@ -193,6 +178,64 @@ class Recipes {
                 }
             ]
         });
+
+        // Resourceful bees honey to bottle in fluid encapsulator
+        event.custom(untyped {
+            type: "thermal:bottler",
+            ingredient: [
+                {
+                    item: "minecraft:glass_bottle"
+                },
+                {
+                    fluid: "resourcefulbees:honey",
+                    amount: 250
+                }
+            ],
+            result: [
+                {
+                    item: "minecraft:honey_bottle"
+                }
+            ]
+        });
+
+        // Honey to sugar
+        for (honey in honeyLiquids) {
+            event.custom({
+                type: "silents_mechanisms:solidifying",
+                ingredient: {
+                    fluid: honey,
+                    amount: 250
+                },
+                process_time: 100,
+                result: {
+                    item: "minecraft:sugar",
+                    count: 3
+                }
+            });
+        }
+
+        // Overwrite glitchy ice and obsidian recipies in solidifier
+        // @formatter:off
+        for (
+            inOutId in [
+                ["minecraft:water", "minecraft:ice", "silents_mechanisms:solidifying/obsidian"],
+                ["minecraft:lava", "minecraft:obsidian", "silents_mechanisms:solidifying/ice"]
+            ]
+        )
+        // @formatter:on
+        {
+            event.custom({
+                type: "silents_mechanisms:solidifying",
+                process_time: 800,
+                ingredient: {
+                    fluid: inOutId[0]
+                },
+                result: {
+                    item: inOutId[1],
+                    count: 1
+                }
+            }).id(inOutId[2]);
+        }
 
         // Ore processing fixes
         var enrichmentChamberOreRecipes = [
